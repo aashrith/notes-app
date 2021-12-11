@@ -2,9 +2,11 @@ version: '3.7'
 services:
     mysql:
         image: 'mysql:8.0'
+        container_name: 'notes-app-mysql-db'
         working_dir: /application
         volumes:
             - '.:/application'
+            - './mysql-disk:/var/lib/mysql'
         environment:
             - MYSQL_ROOT_PASSWORD=1234567
             - MYSQL_DATABASE=notes-db
@@ -15,6 +17,7 @@ services:
 
     webserver:
         image: 'nginx:alpine'
+        container_name: 'notes-app-webserver'
         working_dir: /application
         volumes:
             - '.:/application'
@@ -24,6 +27,7 @@ services:
 
     php-fpm:
         build: phpdocker/php-fpm
+        container_name: 'notes-app-php-fpm'
         working_dir: /application
         volumes:
             - '.:/application'
