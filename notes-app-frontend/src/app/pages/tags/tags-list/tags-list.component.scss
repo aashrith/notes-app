@@ -1,0 +1,52 @@
+.tag-input {
+  padding: 9px 15px;
+  margin-right:1rem ;
+}
+
+.add-tag-button {
+  background-color: white;
+  color: black;
+  border: 1px solid #333333;
+  border-radius: 5px;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+// tag list css
+
+.tags-list{
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    font-weight: bold;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    width: 15rem;
+    margin-top: 1rem;
+    margin-right: 3rem;
+    span{
+    }
+    a{
+      font-size: 0.75rem;
+      color:red;
+      font-weight: normal;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
+
+

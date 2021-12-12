@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { TagsRoutingModule } from './tags-routing.module';
 import { TagsComponent } from './tags.component';
 import { TagsListComponent } from './tags-list/tags-list.component';
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { TagsListComponent } from './tags-list/tags-list.component';
   ],
   imports: [
     CommonModule,
-    TagsRoutingModule
+    TagsRoutingModule,
+    FormsModule
   ]
 })
 export class TagsModule { }

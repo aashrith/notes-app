@@ -1,1 +1,9 @@
-<p>tags-list works!</p>
+<input type="text" placeholder="Type in tag name..." class="tag-input" [(ngModel)]="tagName" (keyup.enter)="createTag()">
+<button class="add-tag-button" (click)="createTag()">Add Tag</button>
+
+<div class="tags-list">
+  <ul>
+    <li *ngFor="let tag of tags"><span>{{tag.name}}</span><a class="delete-tag" (click)="deleteTag(tag.id)">delete</a></li>
+  </ul>
+</div>
+
