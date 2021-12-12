@@ -1,0 +1,283 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Notes App API Documentation",
+        "description": "List of all available notes application api's documented here",
+        "contact": {
+            "email": "aashrith@fastmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8081/api",
+            "description": "Notes App API Server"
+        }
+    ],
+    "paths": {
+        "/notes": {
+            "get": {
+                "tags": [
+                    "Notes"
+                ],
+                "summary": "Get list of notes",
+                "description": "Returns list of notes",
+                "operationId": "getNotesList",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NotesResource"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Notes"
+                ],
+                "summary": "Store new note",
+                "description": "Returns note data",
+                "operationId": "storeNote",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateNoteRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Note"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/tags": {
+            "get": {
+                "tags": [
+                    "Tags"
+                ],
+                "summary": "Get list of tags",
+                "description": "Returns list of tags",
+                "operationId": "getTagsList",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TagsResource"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Tags"
+                ],
+                "summary": "Store new Tag",
+                "description": "Returns Tag data",
+                "operationId": "storeTag",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateTagRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tag"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/tags/{id}": {
+            "delete": {
+                "tags": [
+                    "Tags"
+                ],
+                "summary": "Delete existing tag",
+                "description": "Deletes a tag record and returns no content",
+                "operationId": "deleteTag",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Tag id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/": {
+            "get": {
+                "description": "Home page",
+                "responses": {
+                    "default": {
+                        "description": "Welcome page"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "NotesResource": {
+                "title": "NotesResource",
+                "description": "Notes resource",
+                "xml": {
+                    "name": "NotesResource"
+                }
+            },
+            "TagsResource": {
+                "title": "TagsResource",
+                "description": "Tags resource",
+                "xml": {
+                    "name": "TagsResource"
+                }
+            },
+            "CreateNoteRequest": {
+                "title": "Create Note request",
+                "description": "Create Note request body data",
+                "required": [
+                    "title",
+                    "description"
+                ],
+                "properties": {
+                    "title": {
+                        "title": "title",
+                        "description": "tile of the new note",
+                        "type": "string",
+                        "example": "Note title 1"
+                    },
+                    "description": {
+                        "title": "description",
+                        "description": "Description of the new note",
+                        "type": "string",
+                        "example": "This is new note's description"
+                    }
+                },
+                "type": "object"
+            },
+            "CreateTagRequest": {
+                "title": "Create Tag request",
+                "description": "Create Tag request body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "title": "name",
+                        "description": "Name of the new Tag",
+                        "type": "string",
+                        "example": "Tag 1"
+                    }
+                },
+                "type": "object"
+            },
+            "DeleteTagRequest": {
+                "title": "Delete Tag request",
+                "description": "Delete Tag by id",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "id": {
+                        "title": "tag_id",
+                        "description": "Tag's id of the soon to be deleted tag",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    }
+                },
+                "type": "object"
+            },
+            "Note": {
+                "title": "Note",
+                "description": "Note model",
+                "properties": {
+                    "title": {
+                        "description": "Note title",
+                        "type": "string",
+                        "example": "Notes Title 1"
+                    },
+                    "description": {
+                        "description": "Note description",
+                        "type": "text",
+                        "example": "Note description - Lorem ipsum, in graphical and textual context, refers to filler..."
+                    }
+                },
+                "type": "object"
+            },
+            "Tag": {
+                "title": "Tag",
+                "description": "Notes tags model",
+                "properties": {
+                    "name": {
+                        "description": "Notes tag",
+                        "type": "string",
+                        "example": "Tag 1"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}

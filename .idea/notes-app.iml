@@ -119,6 +119,12 @@
       <excludeFolder url="file://$MODULE_DIR$/notes-app-backend/vendor/ramsey/collection" />
       <excludeFolder url="file://$MODULE_DIR$/notes-app-backend/vendor/ramsey/uuid" />
       <excludeFolder url="file://$MODULE_DIR$/notes-app-backend/vendor/graham-campbell/result-type" />
+      <excludeFolder url="file://$MODULE_DIR$/notes-app-backend/vendor/darkaonline/l5-swagger" />
+      <excludeFolder url="file://$MODULE_DIR$/notes-app-backend/vendor/zircote/swagger-php" />
+      <excludeFolder url="file://$MODULE_DIR$/notes-app-backend/vendor/swagger-api/swagger-ui" />
+      <excludeFolder url="file://$MODULE_DIR$/notes-app-backend/vendor/psr/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/notes-app-backend/vendor/symfony/yaml" />
+      <excludeFolder url="file://$MODULE_DIR$/notes-app-backend/vendor/doctrine/annotations" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

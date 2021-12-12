@@ -113,6 +113,12 @@
       <path value="$PROJECT_DIR$/notes-app-backend/vendor/ramsey/collection" />
       <path value="$PROJECT_DIR$/notes-app-backend/vendor/ramsey/uuid" />
       <path value="$PROJECT_DIR$/notes-app-backend/vendor/graham-campbell/result-type" />
+      <path value="$PROJECT_DIR$/notes-app-backend/vendor/darkaonline/l5-swagger" />
+      <path value="$PROJECT_DIR$/notes-app-backend/vendor/zircote/swagger-php" />
+      <path value="$PROJECT_DIR$/notes-app-backend/vendor/swagger-api/swagger-ui" />
+      <path value="$PROJECT_DIR$/notes-app-backend/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/notes-app-backend/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/notes-app-backend/vendor/doctrine/annotations" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3">
