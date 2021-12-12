@@ -17,9 +17,9 @@ interface TagRepositoryInterface
 
     /**
      * @param CreateTagRequest $createTagRequest
-     * @return TagsCollection
+     * @return void
      */
-    public function createNote(CreateTagRequest $createTagRequest): TagsCollection;
+    public function createTag(CreateTagRequest $createTagRequest): void;
 
     /**
      * @param DeleteTagRequest $deleteTagRequest

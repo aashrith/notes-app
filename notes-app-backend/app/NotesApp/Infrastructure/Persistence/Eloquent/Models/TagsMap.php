@@ -5,6 +5,7 @@ namespace App\NotesApp\Infrastructure\Persistence\Eloquent\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /** @noinspection PhpUnused */
+
 class TagsMap extends Model
 {
     protected $table = 'tagsmap';
