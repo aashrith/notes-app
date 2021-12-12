@@ -1,0 +1,19 @@
+<button class="add-button">Add Note</button>
+
+<div *ngFor="let note of notes" class="note-body">
+ <div class="note-header">
+    <h3 class="note-title">{{note.title}}</h3>
+    <h5 class="note-time-stamp"><i>Created :
+      <time>{{note.created_at | date:'h:mm a, YYYY/MM/dd'}}</time></i>
+    </h5>
+  </div>
+  <div class="note-description">
+    <p>{{note.description}}</p>
+  </div>
+  <div class="note-tags">
+    <ul>
+      <li *ngFor="let tag of note.tagsArray"><span>{{tag}}</span></li>
+    </ul>
+  </div>
+  <hr/>
+</div>

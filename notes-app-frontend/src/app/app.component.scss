@@ -1,0 +1,36 @@
+.container{
+  display: flex;
+  margin: 82px auto 32px;
+  padding: 0 10px;
+  max-width: 600px;
+  flex-direction: column;
+  border: 1px solid black;
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  li {
+    float: left;
+  }
+
+  li a {
+    font-size: 1.5em;
+    font-weight: lighter;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  .active a {
+    font-weight: bold;
+  }
+
+  .content {
+    padding: 14px 16px;
+  }
+}
