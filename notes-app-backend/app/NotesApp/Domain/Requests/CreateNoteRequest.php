@@ -37,6 +37,12 @@ class CreateNoteRequest extends BaseRequest
     /**
      * @OA\Property(
      *      title="tags",
+     *      type="array",
+     *       @OA\Items(
+     *               type="number",
+     *               description="tag ID",
+     *               @OA\Schema(type="number")
+     *         ),
      *      description="Associated tags to note",
      *      example="All asssociated tags to note"
      * )

@@ -209,6 +209,16 @@
                         "description": "Description of the new note",
                         "type": "string",
                         "example": "This is new note's description"
+                    },
+                    "tags": {
+                        "title": "tags",
+                        "description": "Associated tags to note",
+                        "type": "array",
+                        "items": {
+                            "description": "tag ID",
+                            "type": "number"
+                        },
+                        "example": "All asssociated tags to note"
                     }
                 },
                 "type": "object"
