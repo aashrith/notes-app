@@ -5,7 +5,7 @@ services:
         container_name: 'notes-app-mysql-db'
         working_dir: /application
         volumes:
-            - '.:/application'
+            - './notes-app-backend:/application'
             - './notes-app-backend/mysql-disk:/var/lib/mysql'
         environment:
             - MYSQL_ROOT_PASSWORD=1234567
@@ -20,7 +20,7 @@ services:
         container_name: 'notes-app-webserver'
         working_dir: /application
         volumes:
-            - '.:/application'
+            - './notes-app-backend:/application'
             - './phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf'
         ports:
             - '8081:80'

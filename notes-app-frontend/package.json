@@ -7,8 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build:docker":"npm rum build && npm rum docker:image",
-    "docker:image":"./_scripts/create-docker-image.sh"
+    "build:docker": "npm run build && npm rum docker:image",
+    "docker:image": "./_scripts/create-docker-image.sh"
   },
   "private": true,
   "dependencies": {
