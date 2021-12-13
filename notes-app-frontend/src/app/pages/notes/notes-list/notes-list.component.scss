@@ -1,4 +1,4 @@
-.add-button {
+.button {
   background-color: white;
   color: black;
   border: 1px solid #333333;
@@ -65,3 +65,73 @@
     width: 5rem;
   }
 }
+
+// notes add modal css
+#notes-add-model{
+  width: 50rem;
+}
+
+.button-right {
+  display: flex;
+  justify-content: right;
+}
+
+@media (max-width: 400px) {
+  .button-right {
+    display: block;
+  }
+}
+
+// notes add modal form css
+
+form {
+  display: grid;
+  max-width: 600px;
+  margin-bottom: 0.5rem;
+}
+form input {
+  background: #fff;
+  border: 1px solid #9c9c9c;
+}
+
+label {
+  padding: 0.5em 0.5em 0.5em 0;
+}
+
+input {
+  padding: 0.7em;
+  margin-bottom: 0.5rem;
+}
+input:focus {
+  outline: 3px solid gold;
+}
+
+@media (min-width: 400px) {
+  form {
+    grid-template-columns: 200px 1fr;
+    grid-gap: 16px;
+  }
+
+  label {
+    text-align: left;
+    grid-column: 1 / 2;
+  }
+
+  input{
+    grid-column: 2 / 3;
+  }
+}
+
+.notes-add-tags-checkbox {
+  border: 1px solid;
+  list-style: none;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  max-width: 10rem;
+}
+
+.error-warning {
+  color:red;
+}
+

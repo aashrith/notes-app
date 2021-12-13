@@ -10,6 +10,7 @@ import { environment } from '../environments/environment';
 
 import { NotesModule } from "./pages/notes/notes.module";
 import { TagsModule } from "./pages/tags/tags.module";
+import {ModalModule} from "./pages/_modal";
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { TagsModule } from "./pages/tags/tags.module";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ModalModule,
     NotesModule,
     TagsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {

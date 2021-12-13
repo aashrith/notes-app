@@ -15,7 +15,7 @@ export class NotesService {
     return this.http.get(API_URL + '/api/notes').pipe(map(res => res));
   }
 
-  public createNote(requestBody: { title: string; description: string; }): Observable<any> {
+  public createNote(requestBody: { title: string; description: string; tags: Array<string> }): Observable<any> {
     return this.http.post(API_URL + '/api/notes', requestBody).pipe(map(res => res));
   }
  }
