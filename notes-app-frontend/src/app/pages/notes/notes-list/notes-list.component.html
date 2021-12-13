@@ -1,5 +1,6 @@
 <button class="button" (click)="openModal('notes-add-model')">Add Note</button>
 
+<!----Need to refactor the model driven form--->
 <jw-modal id="notes-add-model" class="notes-add-modal-layout">
   <h2>ADD NOTE</h2>
   <i class="error-warning" *ngIf="showErrorWarning">Error while Submitting form</i>
@@ -12,8 +13,8 @@
 
     <label><strong>Tags</strong></label>
     <ul class="notes-add-tags-checkbox">
-      <li *ngFor="let tag of tags" class="node-tags">
-        <input type="checkbox" (change)="onCheckBoxChange(tag)">{{tag.name}}
+      <li *ngFor="let tag of tags ; trackBy: trackByFn" class="node-tags">
+        <input #checkboxes type="checkbox" (change)="onCheckBoxChange(tag)">{{tag.name}}
       </li>
     </ul>
   </form>
@@ -23,7 +24,7 @@
   </div>
 </jw-modal>
 
-<div *ngFor="let note of notes" class="note-body">
+<div *ngFor="let note of notes; trackBy:trackByNoteId" class="note-body">
   <div class="note-header">
     <h3 class="note-title">{{note.title}}</h3>
     <h5 class="note-time-stamp"><i>Created :

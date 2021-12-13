@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, QueryList, ViewChildren} from '@angular/core';
 import {NotesService} from "../../../services/notes.service";
 import {CommonService} from "../../../services/common.service";
 import {ModalService} from "../../_modal";
@@ -51,11 +51,6 @@ export class NotesListComponent implements OnInit {
       this.closeModal('notes-add-model');
       this.commonService.notifyNoteAddition();
 
-      //reset
-      this.title = '';
-      this.description = '';
-      this.checkedTagsIdArray = [];
-
       console.log('data response', res);
     }, error => {
       this.showErrorWarning = true;
@@ -63,10 +58,13 @@ export class NotesListComponent implements OnInit {
   }
 
   openModal(id: string) {
+    this.resetFormValues();
     this.modalService.open(id);
   }
 
   closeModal(id: string) {
+    this.resetFormValues();
+    this.showErrorWarning = false;
     this.modalService.close(id);
   }
 
@@ -85,4 +83,26 @@ export class NotesListComponent implements OnInit {
     }
   }
 
+  trackByFn(index: number, tag: any):number {
+    return tag.id;
+  }
+
+  trackByNoteId(index: number, note: any):number {
+    return note.id;
+  }
+
+  resetFormValues(){
+    this.title = '';
+    this.description = '';
+    this.checkedTagsIdArray = [];
+    this.unCheckAllCheckBoxes();
+  }
+
+  @ViewChildren("checkboxes") checkboxes: QueryList<ElementRef>;
+
+  private unCheckAllCheckBoxes() {
+    this.checkboxes.forEach((element) => {
+      element.nativeElement.checked = false;
+    });
+  }
 }

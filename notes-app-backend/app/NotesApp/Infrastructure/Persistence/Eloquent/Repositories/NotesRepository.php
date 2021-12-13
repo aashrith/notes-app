@@ -42,13 +42,12 @@ class NotesRepository implements NoteRepositoryInterface
 
         $note->save();
 
-        $tagsMap = new TagsMap();
         foreach ($createNoteRequest->getTags() as $tagId){
+            $tagsMap = new TagsMap();
             $tagsMap->note_id = $note->id;
             $tagsMap->tag_id = $tagId;
+            $tagsMap->save();
         }
-
-        $tagsMap->save();
     }
 
     /**
