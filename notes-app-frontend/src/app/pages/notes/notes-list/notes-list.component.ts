@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NotesService} from "../../../services/notes.service";
 import {CommonService} from "../../../services/common.service";
 import {ModalService} from "../../_modal";
@@ -11,18 +11,19 @@ import {TagsService} from "../../../services/tags.service";
 })
 export class NotesListComponent implements OnInit {
 
-  public notes : any [] = [];
-  public tags  : any [] = [];
-  public showErrorWarning : Boolean = false;
-  public title : string = '';
-  public description : string = '';
+  public notes: any [] = [];
+  public tags: any [] = [];
+  public showErrorWarning: Boolean = false;
+  public title: string = '';
+  public description: string = '';
   public checkedTagsIdArray: Array<string> = [];
 
   constructor(
     private notesService: NotesService,
     private commonService: CommonService,
     private modalService: ModalService,
-    private tagService: TagsService ) { }
+    private tagService: TagsService) {
+  }
 
   ngOnInit(): void {
     this.getNotes();
@@ -41,8 +42,8 @@ export class NotesListComponent implements OnInit {
 
   createNote() {
     const reqObj = {
-      'title' : this.title,
-      'description' : this.description,
+      'title': this.title,
+      'description': this.description,
       'tags': this.checkedTagsIdArray
     }
     console.log(reqObj);
@@ -77,9 +78,9 @@ export class NotesListComponent implements OnInit {
 
   onCheckBoxChange(tag: any) {
     const tagId: string = tag['id'];
-    if(!this.checkedTagsIdArray.includes(tagId)){
+    if (!this.checkedTagsIdArray.includes(tagId)) {
       this.checkedTagsIdArray.push(tagId);
-    }else{
+    } else {
       this.checkedTagsIdArray.splice(this.checkedTagsIdArray.indexOf(tagId), 1);
     }
   }
