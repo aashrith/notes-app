@@ -15,19 +15,15 @@ To install frontend dependencies and build notes-app-frontend image:
  npm install
  docker image build -t notes-app-frontend .
 ```
-Configure notes-app-backend .env file and install dependencies:
+Configure notes-app-backend .env file, install dependencies, migrate and seed database:
 ```
 cd notes-app-backend/
 cp .emv.example .emv
 docker exec  notes-app-php-fpm php artisan key:generate
 docker exec  notes-app-php-fpm composer install
+docker exec  notes-app-php-fpm php artisan migrate:fresh --seed
 ```
 
 To access Notes application go to `http://localhost:3000/notes`
 
 To access Backend Api documentation got to `http://localhost:8081/api/documentation`
-
-use this command to migrate and seed the database assuming the docker-compose above is already run the following...
-```
-docker exec  notes-app-php-fpm php artisan migrate:fresh --seed
-```
