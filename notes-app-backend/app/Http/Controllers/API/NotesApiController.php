@@ -88,7 +88,8 @@ class NotesApiController extends Controller
         ]);
         $createNoteRequest = new CreateNoteRequest(
             $request->input('title'),
-            $request->input('description')
+            $request->input('description'),
+            $request->input('tags')
         );
 
         $this->notesService->createNote($createNoteRequest);

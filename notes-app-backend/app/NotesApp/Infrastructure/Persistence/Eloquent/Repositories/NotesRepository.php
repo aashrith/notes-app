@@ -7,6 +7,7 @@ use App\NotesApp\Domain\Repositories\NoteRepositoryInterface;
 use App\NotesApp\Domain\Requests\CreateNoteRequest;
 use App\NotesApp\Infrastructure\Persistence\Eloquent\Models\Note;
 use App\NotesApp\Infrastructure\Persistence\Eloquent\Models\Tag;
+use App\NotesApp\Infrastructure\Persistence\Eloquent\Models\TagsMap;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Log;
 
@@ -23,7 +24,7 @@ class NotesRepository implements NoteRepositoryInterface
     {
         $notesCollection = new NotesCollection();
 
-        $result = Note::with('tagsmap')->get();
+        $result = Note::with('tagsmap')->get()->sortByDesc('created_at');
 
         return $notesCollection->merge($this->constructNotesCollection($result));
     }
@@ -40,6 +41,14 @@ class NotesRepository implements NoteRepositoryInterface
         $note->description = $createNoteRequest->getDescription();
 
         $note->save();
+
+        $tagsMap = new TagsMap();
+        foreach ($createNoteRequest->getTags() as $tagId){
+            $tagsMap->note_id = $note->id;
+            $tagsMap->tag_id = $tagId;
+        }
+
+        $tagsMap->save();
     }
 
     /**

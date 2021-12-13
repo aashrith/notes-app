@@ -35,13 +35,26 @@ class CreateNoteRequest extends BaseRequest
     public $description;
 
     /**
+     * @OA\Property(
+     *      title="tags",
+     *      description="Associated tags to note",
+     *      example="All asssociated tags to note"
+     * )
+     *
+     * @var array
+     */
+    public $tags;
+
+    /**
      * @param string $title
      * @param string $description
+     * @param array $tags
      */
-    public function __construct(string $title, string $description)
+    public function __construct(string $title, string $description, array $tags)
     {
         $this->title = $title;
         $this->description = $description;
+        $this->tags = $tags;
     }
 
     /**
@@ -59,6 +72,15 @@ class CreateNoteRequest extends BaseRequest
     {
         return $this->description;
     }
+
+    /**
+     * @return array
+     */
+    public function getTags(): array
+    {
+        return $this->tags;
+    }
+
 
     public function toJson($options = 0)
     {
