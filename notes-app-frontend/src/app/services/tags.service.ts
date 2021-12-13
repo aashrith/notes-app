@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-const API_URL = 'http://localhost:8081';
+const API_URL = 'http://192.168.68.103:8081';
 @Injectable({
   providedIn: 'root'
 })
